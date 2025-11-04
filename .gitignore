@@ -1,0 +1,61 @@
+=== Environment and Package Management ===
+
+Virtual Environments
+
+venv/
+venv_mlops_cv/
+.venv/
+env/
+
+Python bytecode
+
+pycache/
+*.pyc
+
+=== Operating System and IDE Files ===
+
+.DS_Store
+.vscode/ # Uncomment if you want to ignore VS Code settings (often recommended)
+*.sublime-project
+*.sublime-workspace
+
+=== Data and Artifacts (CRITICAL MLOPS EXCLUSIONS) ===
+
+NOTE: Raw data should not be committed to Git. We assume the 'data' folder
+
+contains the large image files downloaded from Kaggle.
+
+data/seg_train/
+data/seg_test/
+
+Generated Data / Intermediate Features (Phase 2)
+
+data/train_features.csv
+data/baseline_metrics.txt
+
+Persisted Models (Phase 3 and onwards)
+
+src/models/.joblib
+src/models/.h5
+src/models/.pt
+src/models/.pth
+
+MLflow / Experiment Tracking artifacts (if you add this later)
+
+mlruns/
+.mlflow/
+
+=== Jupyter Notebook and Temporary Files ===
+
+.ipynb_checkpoints/
+*.ipnyb.amltmp
+
+=== Docker/Kubernetes files (if generated locally) ===
+
+Ignore built Docker images if they are saved locally
+
+*.docker-build-cache
+
+Ignore compiled logs/monitoring data
+
+elk-logs/

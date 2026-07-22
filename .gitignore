@@ -1,61 +1,41 @@
-=== Environment and Package Management ===
-
-Virtual Environments
-
+# === Environment and Package Management ===
 venv/
-venv_mlops_cv/
 .venv/
 env/
-
-Python bytecode
-
-pycache/
+venv_mlops_cv/
+__pycache__/
 *.pyc
 
-=== Operating System and IDE Files ===
-
+# === Operating System and IDE Files ===
 .DS_Store
-.vscode/ # Uncomment if you want to ignore VS Code settings (often recommended)
+.vscode/
+.idea/
+Thumbs.db
 *.sublime-project
 *.sublime-workspace
 
-=== Data and Artifacts (CRITICAL MLOPS EXCLUSIONS) ===
-
-NOTE: Raw data should not be committed to Git. We assume the 'data' folder
-
-contains the large image files downloaded from Kaggle.
-
+# === Data and Artifacts ===
+# Raw large datasets are not committed
 data/seg_train/
 data/seg_test/
 
-Generated Data / Intermediate Features (Phase 2)
+# Generated Data / Intermediate Features
+data/*.csv
 
-data/train_features.csv
-data/baseline_metrics.txt
+# Performance Metrics
+data/*.txt
 
-Persisted Models (Phase 3 and onwards)
+# Persisted Models (Phase 3 and onwards)
+src/models/*.joblib
+src/models/*.h5
+src/models/*.keras
+src/models/*.pt
+src/models/*.pth
 
-src/models/.joblib
-src/models/.h5
-src/models/.pt
-src/models/.pth
-
-MLflow / Experiment Tracking artifacts (if you add this later)
-
+# MLflow / Experiment Tracking
 mlruns/
 .mlflow/
 
-=== Jupyter Notebook and Temporary Files ===
-
+# === Jupyter Notebook Temporary Files ===
 .ipynb_checkpoints/
-*.ipnyb.amltmp
-
-=== Docker/Kubernetes files (if generated locally) ===
-
-Ignore built Docker images if they are saved locally
-
-*.docker-build-cache
-
-Ignore compiled logs/monitoring data
-
-elk-logs/
+*.ipynb.amltmp
